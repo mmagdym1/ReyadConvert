@@ -148,6 +148,7 @@
             <p class="dropzone-subtitle">يدعم رفع عدة صور دفعة واحدة أو اللصق المباشر من الحافظة (<kbd>Ctrl</kbd> + <kbd>V</kbd>)</p>
 
             <div class="format-tags">
+              <span class="tag max-limit-tag">🚀 الحد الأقصى: حتى 20 صورة دفعة واحدة</span>
               <span class="tag">WEBP</span>
               <span class="tag">PNG</span>
               <span class="tag">JPG / JPEG</span>
@@ -162,7 +163,7 @@
         <div class="files-queue-card" id="filesQueueCard" style="display: none;">
           <div class="queue-header">
             <div class="queue-title-wrap">
-              <span class="queue-badge" id="queueCount">0 صور</span>
+              <span class="queue-badge" id="queueCount">0 / 20 صور</span>
               <span class="queue-text">جاهزة للتحويل والضغط الذكي</span>
             </div>
             <button class="clear-queue-btn" id="clearQueueBtn" title="إفراغ القائمة">
@@ -460,13 +461,19 @@
           </div>
 
           <div class="overview-actions">
-            <button class="download-all-zip-btn" id="downloadAllZipBtn">
+            <button class="download-all-zip-btn" id="downloadAllZipBtn" title="تحميل الكل مدمجة في أرشيف مضغوط واحد">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="21 8 21 21 3 21 3 8"></polyline>
                 <rect x="1" y="3" width="22" height="5"></rect>
                 <line x1="10" y1="12" x2="14" y2="12"></line>
               </svg>
-              <span>تحميل الكل كملف ZIP (مضغوط)</span>
+              <span>تحميل الكل (ZIP مضغوط)</span>
+            </button>
+            <button class="download-all-direct-btn" id="downloadAllDirectBtn" title="تحميل كل الصور كملفات مفردة دفعة واحدة">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 16V4m0 12l-5-5m5 5l5-5"/><path d="M4 20h16"/>
+              </svg>
+              <span>تحميل الكل (ملفات منفصلة)</span>
             </button>
             <button class="clear-results-btn" id="clearResultsBtn" title="مسح النتائج">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

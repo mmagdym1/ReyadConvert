@@ -233,6 +233,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const MAX_FILES = 20;
+
   function addFilesToQueue(newFiles) {
     const imageFiles = newFiles.filter(f => f.type.startsWith("image/"));
     if (!imageFiles.length) {
@@ -240,7 +242,21 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    state.selectedFiles.push(...imageFiles);
+    const currentCount = state.selectedFiles.length;
+    const remainingSlots = MAX_FILES - currentCount;
+
+    if (remainingSlots <= 0) {
+      alert(`⚠️ لقد وصلت للحد الأقصى المسموح به (${MAX_FILES} صورة دفعة واحدة).\nيرجى تحويل الصور الحالية أولاً أو إفراغ القائمة.`);
+      return;
+    }
+
+    if (imageFiles.length > remainingSlots) {
+      alert(`⚠️ تم تحديد ${imageFiles.length} صور، ولكن الحد الأقصى المسموح به هو ${MAX_FILES} صورة دفعة واحدة.\nتمت إضافة أول ${remainingSlots} صور فقط لضمان سرعة واستقرار المتصفح.`);
+      state.selectedFiles.push(...imageFiles.slice(0, remainingSlots));
+    } else {
+      state.selectedFiles.push(...imageFiles);
+    }
+
     renderQueue();
   }
 
@@ -251,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     filesQueueCard.style.display = "block";
-    queueCount.textContent = `${state.selectedFiles.length} صور`;
+    queueCount.textContent = `${state.selectedFiles.length} / ${MAX_FILES} صور`;
     queueList.innerHTML = "";
 
     state.selectedFiles.forEach((file, index) => {
@@ -794,6 +810,17 @@ document.addEventListener("DOMContentLoaded", () => {
       fallbackSequentialDownload();
     }
   });
+
+  // Direct Separate Files Download
+  const downloadAllDirectBtn = document.getElementById("downloadAllDirectBtn");
+  if (downloadAllDirectBtn) {
+    downloadAllDirectBtn.addEventListener("click", () => {
+      if (!state.convertedResults.length) return;
+      state.convertedResults.forEach((item, index) => {
+        setTimeout(() => downloadItem(item), index * 260);
+      });
+    });
+  }
 
   function fallbackSequentialDownload() {
     state.convertedResults.forEach((item, index) => {
