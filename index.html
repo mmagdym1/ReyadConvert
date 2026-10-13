@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>ReyadConvert | محوّل ومحسن الصور الذكي بواسطة Mohamed Reyad (WebP, AVIF, PNG, JPG)</title>
+  <meta name="title" content="ReyadConvert | محوّل ومحسن الصور الذكي بواسطة Mohamed Reyad" />
+  <meta name="description" content="ReyadConvert بواسطة Mohamed Reyad — أداة ويب احترافية فائقة السرعة لتحويل وضغط الصور إلى WebP و AVIF و PNG و JPG مع خوارزمية ذكية تضمن ضبط حجم أي صورة عالية الدقة عند 130 كيلوبايت أو أقل دون فقدان الوضوح البصري وبخصوصية تامة 100% داخل المتصفح." />
+  <meta name="keywords" content="ReyadConvert, Mohamed Reyad, محمد رياض, محول صور, تحويل webp, ضغط الصور 130 كيلوبايت, webp converter, compress image to 130kb, image optimizer, avif converter, png to webp, jpg to webp, browser image compression" />
+  <meta name="author" content="Mohamed Reyad" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="Arabic" />
+  <link rel="canonical" href="https://github.com/mmagdym1/ReyadConvert" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://github.com/mmagdym1/ReyadConvert" />
+  <meta property="og:title" content="ReyadConvert | محوّل ومحسن الصور الذكي بواسطة Mohamed Reyad" />
+  <meta property="og:description" content="أداة ويب احترافية لتحويل وضغط الصور لصيغ WebP و AVIF و PNG و JPG مع معادلة ذكية تضمن حجم ≤ 130KB لكل صورة." />
+  <meta property="og:site_name" content="ReyadConvert" />
+  <meta property="og:locale" content="ar_AR" />
+
+  <!-- Twitter Meta -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://github.com/mmagdym1/ReyadConvert" />
+  <meta property="twitter:title" content="ReyadConvert | محوّل ومحسن الصور الذكي — Mohamed Reyad" />
+  <meta property="twitter:description" content="أداة ويب احترافية لتحويل وضغط الصور مع معادلة ذكية تضمن حجم ≤ 130KB لكل صورة وبخصوصية 100%." />
+
+  <!-- Structured Data JSON-LD for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ReyadConvert",
+    "alternateName": "Reyad Image Converter Studio",
+    "url": "https://github.com/mmagdym1/ReyadConvert",
+    "author": {
+      "@type": "Person",
+      "name": "Mohamed Reyad"
+    },
+    "description": "أداة ويب احترافية فائقة السرعة لتحويل وضغط الصور إلى صيغ WebP و AVIF و PNG و JPG بمعادلة ذكية تضمن حجم 130 كيلوبايت أو أقل.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript and HTML5 Canvas support",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts: Alexandria (Arabic) & Plus Jakarta Sans (Numerals & Badges) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- JSZip for instant batch ZIP downloads -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- App Wrapper -->
+  <div class="app-layout">
+
+    <!-- Top Navigation Bar -->
+    <header class="app-header">
+      <div class="brand-group">
+        <div class="brand-icon">
+          <svg viewBox="0 0 40 40" width="38" height="38" fill="none">
+            <rect width="40" height="40" rx="12" fill="url(#brandGrad)" />
+            <path d="M12 28L18 16L24 24L28 19L32 28H12Z" fill="white" fill-opacity="0.9" />
+            <circle cx="27" cy="14" r="3" fill="#34D399" />
+            <defs>
+              <linearGradient id="brandGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#059669" />
+                <stop offset="0.5" stop-color="#0284C7" />
+                <stop offset="1" stop-color="#6366F1" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="brand-pulse"></span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title-row">
+            <h1 class="brand-title">ReyadConvert <span class="brand-badge">PRO</span></h1>
+            <span class="version-tag">v2.5 الذكي</span>
+          </div>
+          <p class="brand-sub">تطوير: <strong class="author-highlight">Mohamed Reyad</strong> — محوّل ومحسن الصور الخارق (خصوصية 100%)</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="privacy-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>معالجة محلية داخلية</span>
+        </div>
+
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="تبديل المظهر">
+          <span class="theme-icon-box">
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="theme-label" id="themeLabel">الوضع المظلم</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace Grid -->
+    <main class="main-container">
+
+      <!-- Upload Zone -->
+      <section class="upload-section">
+        <div class="dropzone" id="dropzone">
+          <input type="file" id="fileInput" accept="image/*" multiple aria-label="اختر الصور" />
+          <div class="dropzone-inner">
+            <div class="dropzone-icon-circle">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+            </div>
+            <h2 class="dropzone-title">اسحب وأفلت الصور هنا، أو <span class="browse-link">تصفح ملفاتك</span></h2>
+            <p class="dropzone-subtitle">يدعم رفع عدة صور دفعة واحدة أو اللصق المباشر من الحافظة (<kbd>Ctrl</kbd> + <kbd>V</kbd>)</p>
+
+            <div class="format-tags">
+              <span class="tag">WEBP</span>
+              <span class="tag">PNG</span>
+              <span class="tag">JPG / JPEG</span>
+              <span class="tag">AVIF</span>
+              <span class="tag">BMP</span>
+              <span class="tag">GIF</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected Files Queue Card (Hidden when empty) -->
+        <div class="files-queue-card" id="filesQueueCard" style="display: none;">
+          <div class="queue-header">
+            <div class="queue-title-wrap">
+              <span class="queue-badge" id="queueCount">0 صور</span>
+              <span class="queue-text">جاهزة للتحويل والضغط الذكي</span>
+            </div>
+            <button class="clear-queue-btn" id="clearQueueBtn" title="إفراغ القائمة">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+              <span>إفراغ الكل</span>
+            </button>
+          </div>
+          <div class="queue-items-scroller" id="queueList"></div>
+        </div>
+      </section>
+
+      <!-- Control Settings & Configuration Deck -->
+      <section class="controls-deck">
+
+        <!-- Format Selector Panel -->
+        <div class="config-panel">
+          <div class="panel-header">
+            <div class="panel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 7V4h16v3M9 20h6M12 4v16"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="panel-title">صيغة التحويل المستهدفة</h3>
+              <p class="panel-desc">اختر الصيغة المناسبة لاستخدامك (الويب، التطبيقات، أو الطباعة)</p>
+            </div>
+          </div>
+
+          <div class="format-cards-grid" id="formatSelector">
+            <!-- WebP (Default) -->
+            <label class="format-card active" data-format="webp">
+              <input type="radio" name="formatRadio" value="webp" checked />
+              <div class="card-radio-mark"></div>
+              <div class="card-top">
+                <span class="format-name">WebP</span>
+                <span class="format-badge-star">الأفضل للويب ⭐</span>
+              </div>
+              <p class="format-info">توازن استثنائي بين الحجم الصغير والجودة العالية المتوافقة مع 99% من المتصفحات.</p>
+            </label>
+
+            <!-- AVIF -->
+            <label class="format-card" data-format="avif">
+              <input type="radio" name="formatRadio" value="avif" />
+              <div class="card-radio-mark"></div>
+              <div class="card-top">
+                <span class="format-name">AVIF</span>
+                <span class="format-badge-tag">الجيل الجديد 🔥</span>
+              </div>
+              <p class="format-info">أقوى تقنية ضغط عصرية مبنية على ترميز AV1 لأصغر حجم ممكن.</p>
+            </label>
+
+            <!-- JPEG -->
+            <label class="format-card" data-format="jpeg">
+              <input type="radio" name="formatRadio" value="jpeg" />
+              <div class="card-radio-mark"></div>
+              <div class="card-top">
+                <span class="format-name">JPEG / JPG</span>
+                <span class="format-badge-tag">توافق كلي 🌐</span>
+              </div>
+              <p class="format-info">الصيغة القياسية الشاملة للصور الفوتوغرافية المتوافقة مع جميع الأجهزة والأنظمة.</p>
+            </label>
+
+            <!-- PNG -->
+            <label class="format-card" data-format="png">
+              <input type="radio" name="formatRadio" value="png" />
+              <div class="card-radio-mark"></div>
+              <div class="card-top">
+                <span class="format-name">PNG</span>
+                <span class="format-badge-tag">شفافية بدون فقد 💎</span>
+              </div>
+              <p class="format-info">جودة بلا أي فقدان وضمان بقاء خلفيات الشفافية (Transparency) نقية تماماً.</p>
+            </label>
+          </div>
+        </div>
+
+        <!-- Optimization Strategy Tabs Panel -->
+        <div class="config-panel">
+          <div class="panel-header">
+            <div class="panel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="panel-title">استراتيجية التحسين والضغط</h3>
+              <p class="panel-desc">تحكّم في الحجم المستهدف تلقائياً أو اضبط المعايير يدوياً</p>
+            </div>
+          </div>
+
+          <!-- Mode Navigation Pills -->
+          <div class="mode-tabs">
+            <button class="mode-tab-btn active" id="tabSmartMode" type="button">
+              <span class="tab-icon">🎯</span>
+              <span class="tab-title">معادلة الحجم الذكي (≤ 130KB تلقائياً)</span>
+              <span class="tab-highlight">مُوصى به</span>
+            </button>
+            <button class="mode-tab-btn" id="tabManualMode" type="button">
+              <span class="tab-icon">🎛️</span>
+              <span class="tab-title">التحكم اليدوي المتقدم</span>
+            </button>
+          </div>
+
+          <!-- Tab Content 1: Smart Target Equation (Default) -->
+          <div class="tab-view active" id="viewSmartMode">
+            <div class="smart-target-card">
+              <div class="smart-card-top">
+                <div class="smart-badge-row">
+                  <span class="smart-glow-badge">✨ خوارزمية Mohamed Reyad التكيفية</span>
+                  <span class="equation-status-pill">معادلة فعالة نشطة</span>
+                </div>
+                <p class="smart-explain">
+                  تقوم المعادلة بالبحث الثنائي التكيفي (Adaptive Binary Search) لإيجاد <strong>أقصى جودة ونقاء بصري</strong>، مع تصغير ذكي للأبعاد فقط عند الضرورة لضمان خروج أي صورة بجودة فائقة بحجم <strong>130 كيلوبايت أو أقل</strong> بشكل قطعي.
+                </p>
+              </div>
+
+              <div class="target-input-row">
+                <div class="target-label-group">
+                  <label for="smartTargetInput" class="target-label">الحد الأقصى للحجم المطلوب:</label>
+                  <span class="target-sublabel">أي صورة تفوق هذا الحد ستُضغط لتلائمه</span>
+                </div>
+                <div class="target-field-wrap">
+                  <input type="number" id="smartTargetInput" min="20" max="5000" value="130" />
+                  <span class="target-unit">كيلوبايت (KB)</span>
+                </div>
+              </div>
+
+              <!-- Quick Presets -->
+              <div class="presets-row">
+                <span class="presets-label">خيارات سريعة:</span>
+                <div class="preset-chips">
+                  <button type="button" class="preset-chip active" data-target="130">130 KB (الشرط المحدد ⭐)</button>
+                  <button type="button" class="preset-chip" data-target="100">100 KB (فائق الخفة)</button>
+                  <button type="button" class="preset-chip" data-target="200">200 KB (متوازن)</button>
+                  <button type="button" class="preset-chip" data-target="350">350 KB (دقة أوسع)</button>
+                  <button type="button" class="preset-chip" data-target="500">500 KB (عالي)</button>
+                </div>
+              </div>
+
+              <div class="smart-features-grid">
+                <div class="feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>أعلى جودة مرئية ممكنة للعين</span>
+                </div>
+                <div class="feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>الحفاظ على نسبة الأبعاد (Aspect Ratio)</span>
+                </div>
+                <div class="feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>الصور الأصغر من 130KB لا تُضغط بشكل مفرط</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Content 2: Manual Advanced Controls -->
+          <div class="tab-view" id="viewManualMode">
+            <div class="manual-controls-grid">
+
+              <!-- Quality Setting -->
+              <div class="setting-item-box" id="qualitySettingBox">
+                <div class="setting-item-header">
+                  <div class="setting-label-block">
+                    <span class="setting-name">جودة الصورة (Quality)</span>
+                    <span class="setting-desc">اختر مستوى الضغط من 1 إلى 100</span>
+                  </div>
+                  <div class="num-stepper-wrap">
+                    <input type="number" id="manualQualityNum" min="1" max="100" value="82" />
+                    <span class="num-unit">%</span>
+                  </div>
+                </div>
+                <input type="range" class="premium-slider" id="manualQualitySlider" min="1" max="100" value="82" />
+                <div class="slider-marks">
+                  <span>أقصى ضغط (حجم ضئيل)</span>
+                  <span>متوازن (80%)</span>
+                  <span>أعلى جودة نقاء (100%)</span>
+                </div>
+              </div>
+
+              <!-- Scale Setting -->
+              <div class="setting-item-box">
+                <div class="setting-item-header">
+                  <div class="setting-label-block">
+                    <span class="setting-name">تقليل الأبعاد بالنسبة المئوية</span>
+                    <span class="setting-desc">تصغير دقة الصورة مع الحفاظ الكامل على الأبعاد</span>
+                  </div>
+                  <div class="num-stepper-wrap">
+                    <input type="number" id="manualScaleNum" min="10" max="100" value="100" />
+                    <span class="num-unit">%</span>
+                  </div>
+                </div>
+                <input type="range" class="premium-slider" id="manualScaleSlider" min="10" max="100" value="100" />
+                <div class="slider-marks">
+                  <span>10% (تصغير حاد)</span>
+                  <span>50% (نصف الحجم)</span>
+                  <span>الأبعاد الأصلية 100%</span>
+                </div>
+                <div class="scale-live-hint" id="scaleLiveHint">✅ الأبعاد الأصلية بنسبة 100%</div>
+              </div>
+
+              <!-- Custom Dimensions -->
+              <div class="setting-item-box">
+                <div class="setting-item-header">
+                  <div class="setting-label-block">
+                    <span class="setting-name">أبعاد مخصصة بالبكسل (اختياري)</span>
+                    <span class="setting-desc">تحديد عرض وارتفاع محددين بدقة</span>
+                  </div>
+                  <button type="button" class="aspect-ratio-btn active" id="aspectRatioLock" title="قفل نسبة العرض إلى الارتفاع">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <span>قفل النسبة</span>
+                  </button>
+                </div>
+
+                <div class="dimensions-input-group">
+                  <div class="dim-box">
+                    <label for="customWidthInput">العرض (Width)</label>
+                    <div class="dim-input-wrap">
+                      <input type="number" id="customWidthInput" placeholder="تلقائي" min="1" />
+                      <span class="dim-unit">px</span>
+                    </div>
+                  </div>
+
+                  <div class="dim-separator">×</div>
+
+                  <div class="dim-box">
+                    <label for="customHeightInput">الارتفاع (Height)</label>
+                    <div class="dim-input-wrap">
+                      <input type="number" id="customHeightInput" placeholder="تلقائي" min="1" />
+                      <span class="dim-unit">px</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Master Action Conversion Button & Progress -->
+        <div class="action-dock">
+          <button class="primary-convert-btn" id="convertBtn">
+            <span class="btn-glow-layer"></span>
+            <span class="btn-content">
+              <svg class="btn-action-icon" id="btnIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v10m0 0l-4-4m4 4l4-4"/>
+                <path d="M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/>
+              </svg>
+              <span class="btn-text" id="btnText">تحويل وضغط الصور الآن</span>
+            </span>
+          </button>
+
+          <!-- Live Progress Container (Hidden during idle) -->
+          <div class="progress-bar-container" id="progressContainer" style="display: none;">
+            <div class="progress-info-row">
+              <span class="progress-status-text" id="progressStatusText">جارٍ معالجة الصور...</span>
+              <span class="progress-percentage-text" id="progressPctText">0%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Conversion Results Section -->
+      <section class="results-section" id="resultsSection" style="display: none;">
+
+        <!-- Results Overview Banner -->
+        <div class="results-overview-card">
+          <div class="overview-main">
+            <div class="overview-stat-item">
+              <span class="stat-number" id="statTotalCount">0</span>
+              <span class="stat-label">صور تم تحويلها</span>
+            </div>
+            <div class="overview-divider"></div>
+            <div class="overview-stat-item">
+              <span class="stat-number highlight-blue" id="statOriginalSize">0 MB</span>
+              <span class="stat-label">الحجم الأصلي</span>
+            </div>
+            <div class="overview-divider"></div>
+            <div class="overview-stat-item">
+              <span class="stat-number highlight-green" id="statNewSize">0 MB</span>
+              <span class="stat-label">الحجم الجديد</span>
+            </div>
+            <div class="overview-divider"></div>
+            <div class="overview-stat-item">
+              <span class="stat-number highlight-saved" id="statSavedPercent">0%</span>
+              <span class="stat-label">نسبة التوفير الإجمالية</span>
+            </div>
+          </div>
+
+          <div class="overview-actions">
+            <button class="download-all-zip-btn" id="downloadAllZipBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                <rect x="1" y="3" width="22" height="5"></rect>
+                <line x1="10" y1="12" x2="14" y2="12"></line>
+              </svg>
+              <span>تحميل الكل كملف ZIP (مضغوط)</span>
+            </button>
+            <button class="clear-results-btn" id="clearResultsBtn" title="مسح النتائج">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+              <span>مسح</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Converted Cards Grid -->
+        <div class="results-cards-grid" id="resultsGrid"></div>
+
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-content">
+        <p><strong>ReyadConvert</strong> — استوديو ضغط وتحويل الصور المتقدم. طُوّر بواسطة <span class="author-tag">Mohamed Reyad</span>.</p>
+        <p class="footer-sub">جميع حقوق المعالجة والملفات محفوظة في ذاكرتك المحلية ولا تُرسل لأي خادم على الإطلاق (خصوصية تامة 100%).</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Comparison Modal (Before vs After Split Slider) -->
+  <div class="compare-modal-backdrop" id="compareModal" style="display: none;" aria-hidden="true">
+    <div class="compare-modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 class="modal-title" id="compareFileName">مقارنة الجودة: قبل وبعد الضغط</h3>
+          <span class="modal-subtitle">اسحب المقبض يميناً ويساراً لفحص دقة الصورة مباشرة</span>
+        </div>
+        <button class="modal-close-btn" id="closeCompareModal" aria-label="إغلاق">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="comparison-viewport" id="comparisonViewport">
+          <!-- After (Processed) Image - Bottom Layer -->
+          <img class="compare-img compare-after" id="compareAfterImg" alt="الصورة بعد الضغط" />
+          <div class="compare-badge compare-badge-after" id="compareAfterBadge">بعد الضغط (WebP)</div>
+
+          <!-- Before (Original) Image - Top Layer clipped -->
+          <div class="compare-before-clip" id="compareBeforeClip">
+            <img class="compare-img compare-before" id="compareBeforeImg" alt="الصورة الأصلية" />
+            <div class="compare-badge compare-badge-before" id="compareBeforeBadge">الأصلية</div>
+          </div>
+
+          <!-- Split Divider Handle -->
+          <div class="compare-slider-divider" id="compareSliderDivider">
+            <div class="slider-divider-line"></div>
+            <div class="slider-divider-handle">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-metrics-bar">
+          <div class="metric-col">
+            <span class="metric-label">الحجم الأصلي</span>
+            <span class="metric-val" id="compareOriginalSizeVal">--</span>
+          </div>
+          <div class="metric-arrow">←</div>
+          <div class="metric-col">
+            <span class="metric-label">الحجم بعد الضغط</span>
+            <span class="metric-val highlight-green" id="compareNewSizeVal">--</span>
+          </div>
+          <div class="metric-col">
+            <span class="metric-label">مستوى التوفير</span>
+            <span class="metric-val highlight-saved" id="compareSavingsVal">--</span>
+          </div>
+          <div class="metric-col">
+            <span class="metric-label">الدقة والأبعاد</span>
+            <span class="metric-val" id="compareDimsVal">--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

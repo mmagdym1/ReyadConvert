@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing / Local
+.DS_Store
+Thumbs.db
+*.log
+
+# System / Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
