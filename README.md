@@ -73,7 +73,7 @@ $$\text{Target Size} \le 130 \times 1024 = 133,120 \text{ Bytes}$$
 
 ```bash
 # 1. استنساخ المستودع | Clone repository
-git clone https://github.com/mmagdym1/ReyadConvert.git
+git clone https://github.com/reyad-dev/ReyadConvert.git
 
 # 2. الانتقال إلى مجلد المشروع | Navigate to folder
 cd ReyadConvert
@@ -106,8 +106,8 @@ npx serve .
 ## 👨‍💻 المطور | Author
 
 **Mohamed Reyad (محمد رياض)**  
-- GitHub: [@mmagdym1](https://github.com/mmagdym1)
-- Project Repository: [https://github.com/mmagdym1/ReyadConvert](https://github.com/mmagdym1/ReyadConvert)
+- GitHub: [@reyad-dev](https://github.com/reyad-dev)
+- Project Repository: [https://github.com/reyad-dev/ReyadConvert](https://github.com/reyad-dev/ReyadConvert)
 
 ---
 
