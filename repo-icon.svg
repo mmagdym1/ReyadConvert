@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="ReyadConvert icon">
+<defs>
+  <linearGradient id="bg" x1="50" y1="40" x2="450" y2="470" gradientUnits="userSpaceOnUse"><stop stop-color="#082C78"/><stop offset=".42" stop-color="#3030D9"/><stop offset="1" stop-color="#7B22D8"/></linearGradient>
+  <linearGradient id="cyan" x1="0" x2="1"><stop stop-color="#31E6FF"/><stop offset="1" stop-color="#67B9FF"/></linearGradient>
+  <linearGradient id="warm" x1="0" x2="1"><stop stop-color="#FFD66B"/><stop offset=".55" stop-color="#FF8A5C"/><stop offset="1" stop-color="#D958FF"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect x="28" y="28" width="456" height="456" rx="106" fill="url(#bg)"/>
+<rect x="36" y="36" width="440" height="440" rx="98" fill="none" stroke="#60E7FF" stroke-opacity=".28" stroke-width="3"/>
+<path d="M116 145c0-17 14-31 31-31h128l51 51v149c0 17-14 31-31 31H147c-17 0-31-14-31-31V145Z" fill="#F4F8FF"/>
+<path d="M275 114v45c0 12 10 22 22 22h29" fill="#C8DCFF"/>
+<rect x="151" y="172" width="111" height="18" rx="9" fill="#2473F3"/><rect x="151" y="211" width="88" height="13" rx="7" fill="#9CB5ED"/><rect x="151" y="243" width="68" height="13" rx="7" fill="#9CB5ED"/>
+<path d="M231 232c0-17 14-31 31-31h101l43 43v134c0 17-14 31-31 31H262c-17 0-31-14-31-31V232Z" fill="#111946" stroke="#7B7CFF" stroke-width="3"/>
+<path d="M363 201v37c0 10 8 18 18 18h25" fill="#5B4DD8"/>
+<rect x="267" y="269" width="91" height="15" rx="8" fill="#8D6DFF"/><rect x="267" y="307" width="99" height="15" rx="8" fill="url(#warm)"/><rect x="267" y="345" width="74" height="13" rx="7" fill="#5866C5"/>
+<path d="M198 125c69-43 161-25 209 36" fill="none" stroke="url(#cyan)" stroke-width="24" stroke-linecap="round" filter="url(#glow)"/><path d="m410 147 5 43-42-7" fill="none" stroke="#6BE8FF" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M312 423c-69 37-155 15-198-48" fill="none" stroke="url(#warm)" stroke-width="24" stroke-linecap="round" filter="url(#glow)"/><path d="m105 389-2-43 41 10" fill="none" stroke="#FFBD60" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
