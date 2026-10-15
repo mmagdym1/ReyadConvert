@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="repo-icon.svg" width="180" alt="ReyadConvert icon" />
+</p>
+
 # ⚡ ReyadConvert — Smart Image Converter & Optimizer
 
 <p align="center">
